@@ -1,0 +1,22 @@
+/* Boilerplate CSS for website layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #fff;
+    color: #222;
+}
+header, main, footer {
+    padding: 1rem;
+}
+header {
+    background: #eee;
+    text-align: center;
+}
+main {
+    min-height: 60vh;
+}
+footer {
+    background: #eee;
+    text-align: center;
+}
