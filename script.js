@@ -15,14 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.setAttribute('data-bs-theme', initial);
     buttonIcon.textContent = initial === 'dark' ? 'light_mode' : 'dark_mode';
 
-    // Sidebar collapse functionality
+    // Sidebar collapse functionality for CSS Grid layout
     const sidebar = document.getElementById('sidebar');
-    const buttonCollapse = document.getElementById('sidebarCollapser');
-    const collapseIcon = buttonCollapse.querySelector('.material-icons-outlined');
-    buttonCollapse.addEventListener('click', () => {
-        const collapsed = sidebar.classList.toggle('collapsed');
-        if (collapseIcon) {
-            collapseIcon.textContent = collapsed ? 'menu' : 'menu';
-        }
+    const sidebarToggle = document.getElementById("sidebar-toggle");
+
+    sidebarToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
     });
 });
