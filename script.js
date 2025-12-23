@@ -1,45 +1,28 @@
-// Sidebar collapse logic with show button and icon-only collapsed state
-const sidebar = document.getElementById('sidebar');
-const sidebarToggle = document.getElementById('sidebarToggle');
-const sidebarShowBtn = document.getElementById('sidebarShowBtn');
-const sidebarLabels = document.querySelectorAll('.sidebar-label');
-let collapsed = false;
-function hideSidebar() {
-    sidebar.style.marginLeft = '-220px';
-    sidebar.style.width = '60px';
-    sidebarShowBtn.style.display = 'block';
-    sidebarLabels.forEach(label => label.style.display = 'none');
-    collapsed = true;
-}
-function showSidebar() {
-    sidebar.style.marginLeft = '0';
-    sidebar.style.width = '260px';
-    sidebarShowBtn.style.display = 'none';
-    sidebarLabels.forEach(label => label.style.display = 'inline');
-    collapsed = false;
-}
-sidebarToggle.addEventListener('click', hideSidebar);
-sidebarShowBtn.addEventListener('click', showSidebar);
-// Hide sidebar by default on mobile
-function handleResize() {
-    if (window.innerWidth < 768) {
-        hideSidebar();
-    } else {
-        showSidebar();
-    }
-}
-window.addEventListener('resize', handleResize);
-document.addEventListener('DOMContentLoaded', handleResize);
+document.addEventListener('DOMContentLoaded', () => {
 
-// Boilerplate JS for Bootstrap site
-// You can add custom JS below
+    const button = document.getElementById('theme-switcher');
+    const buttonIcon = button.querySelector('.material-icons-outlined');
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Example: Show alert on button click
-    const button = document.getElementById('clickMeBtn');
-    if (button) {
-        button.addEventListener('click', function() {
-            alert('Button clicked!');
-        });
-    }
+    // Toggle theme and update icon
+    button.addEventListener('click', () => {
+        const next = document.body.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+        document.body.setAttribute('data-bs-theme', next);
+        buttonIcon.textContent = next === 'dark' ? 'light_mode' : 'dark_mode';
+    });
+
+    // Initialize icon based on current theme
+    const initial = document.body.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+    document.body.setAttribute('data-bs-theme', initial);
+    buttonIcon.textContent = initial === 'dark' ? 'light_mode' : 'dark_mode';
+
+    // Sidebar collapse functionality
+    const sidebar = document.getElementById('sidebar');
+    const buttonCollapse = document.getElementById('sidebarCollapser');
+    const collapseIcon = buttonCollapse.querySelector('.material-icons-outlined');
+    buttonCollapse.addEventListener('click', () => {
+        const collapsed = sidebar.classList.toggle('collapsed');
+        if (collapseIcon) {
+            collapseIcon.textContent = collapsed ? 'menu' : 'menu';
+        }
+    });
 });

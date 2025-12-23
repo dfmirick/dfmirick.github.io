@@ -1,22 +1,109 @@
-/* Boilerplate CSS for website layout */
+/* Sidebar Navigation */
+
+#sidebar {
+    height: 100vh;
+    width: 200px;
+    z-index: 1040;
+    transition: width 0.3s cubic-bezier(.4, 0, .2, 1);
+    overflow-y: auto;
+    background: var(--bs-body-bg, #f8f9fa); /* Use Bootstrap variable if available */
+    border-right: 1px solid var(--bs-border-color, #dee2e6);
+    box-shadow: 0 0 1rem rgba(0,0,0,0.03);
+}
+
+#sidebar.collapsed {
+    width: 75px !important;
+    transition: width 0.2s linear;
+}
+
+#sidebar.collapsed .navigation-label,
+#sidebar.collapsed h2 {
+    display: none;
+    pointer-events: none !important;
+    margin-right: 0 !important;
+}
+
+#sidebar.collapsed .nav-link:hover .material-icons-outlined {
+    background: none;
+    border-radius: 0;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 4px 0 0 var(--bs-primary-bg, #0d6efd);
+}
+
+#sidebar .nav-link {
+    color: var(--bs-body-color);
+    background: var(--bs-tertiary-bg);
+    border-radius: var(--bs-border-radius-2, 0.5rem);
+    padding: var(--bs-spacer-2, 0.5rem);
+}
+
+#sidebar .nav-link:hover {
+    transition: background-color 0.2s, border 0.2s;
+    background-color: var(--bs-secondary-bg);
+    border: 1px solid var(--bs-primary) !important;
+}
+
+#sidebar .navigation-label {
+    text-decoration: underline solid 4px transparent;
+    transition: text-decoration-color 0.2s;
+}
+#sidebar:not(.collapsed) .nav-link:hover .navigation-label {
+    text-decoration-color: var(--bs-primary);
+}
+
+
+
+
+
+
+
+
+/* --- Sidebar Styles (Bootstrap-friendly) --- */
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: var(--bs-body-font-family, sans-serif);
+    background: var(--bs-body-bg, #fff);
+    color: var(--bs-body-color, #222);
+}
+
+
+
+
+
+/* Optional: Full-page background gradient (customize as needed) */
+html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, #222222, #111111);
+    z-index: -1;
+}
+
+/* --- General Layout Tweaks (Bootstrap overrides) --- */
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    background: #fff;
-    color: #222;
+    font-family: var(--bs-body-font-family, sans-serif);
+    background: var(--bs-body-bg, #fff);
+    color: var(--bs-body-color, #222);
 }
+
+header {
+    height: 300px;
+    justify-content: center;
+}
+
 header, main, footer {
     padding: 1rem;
 }
-header {
-    background: #eee;
+
+header, footer {
+    background: var(--bs-secondary-bg, #eee);
     text-align: center;
 }
-main {
-    min-height: 60vh;
-}
-footer {
-    background: #eee;
-    text-align: center;
-}
+
+/* footer {
+    position: fixed;
+} */
