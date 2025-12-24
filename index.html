@@ -3,63 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Material Icons CDN (Outlined) -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Tailwind -->  
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <title>My Website</title>
 </head>
-<body data-bs-theme="dark">
+<body>
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar bg-body d-flex flex-column border-end p-3">
-        <div id="navigation-header">
-            <button id="sidebar-toggle" class="btn btn-hollow-primary">
+    <aside id="sidebar" class="flex flex-col border-r p-4">
+        <div class="flex items-center overflow-hidden gap-1">
+            <button id="sidebar-toggle" class="flex items-center justify-center p-2 rounded hover:bg-slate-800 transition-colors duration-200">
                 <span class="material-icons-outlined">menu</span>
             </button>
-            <h2 class="fs-4 mb-0">Navigation</h2>
+            <h2 class="text-2xl font-semibold">Navigation</h2>
         </div>
-        <hr class="mt-2">
-        <ul id="navigation-list" class="nav flex-column gap-2">
-            <li class="navigation-item">
-                <a href="#main-section-home" class="nav-link d-flex gap-2 border">
-                    <span class="navigation-icon material-icons-outlined align-items-center">home</span>
-                    <span class="navigation-label">Home</span>
+        <hr class="mt-2 mb-4">
+        <ul id="navigation-list" class="flex flex-col gap-2">
+            <li>
+                <a href="#main-section-home" class="flex items-center overflow-hidden p-2 gap-2 border border-slate-700 rounded hover:bg-slate-800 hover:border-transparent transition-colors duration-200">
+                    <span class="material-icons-outlined">home</span>
+                    <span>Home</span>
                 </a>
             </li>
-            <li class="navigation-item">
-                <a href="#main-section-about" class="nav-link d-flex gap-2 border">
-                    <span class="navigation-icon material-icons-outlined align-items-center">person</span>
-                    <span class="navigation-label">About</span>
+            <li>
+                <a href="#main-section-about" class="flex items-center overflow-hidden p-2 gap-2 border border-slate-700 rounded hover:bg-slate-800 hover:border-transparent transition-colors duration-200">
+                    <span class="material-icons-outlined">person</span>
+                    <span>About</span>
                 </a>
             </li>
-            <li class="navigation-item">
-                <a href="#main-section-contact" class="nav-link d-flex gap-2 border">
-                    <span class="navigation-icon material-icons-outlined align-items-center">mail</span>
-                    <span class="navigation-label">Contact</span>
+            <li>
+                <a href="#main-section-contact" class="flex items-center overflow-hidden p-2 gap-2 border border-slate-700 rounded hover:bg-slate-800 hover:border-transparent transition-colors duration-200">
+                    <span class="material-icons-outlined">mail</span>
+                    <span>Contact</span>
                 </a>
             </li>
         </ul>
-        <hr>
-        <div class="flex-grow-1"></div>
-        <hr class="mt-2">
-                <!-- <button id="theme-switcher" class="btn btn-outline-primaryd-flex justify-content-center align-items-center p-0 mx-2" style="width: 24px; height: 24px;"> -->
-        <button id="theme-switcher" class="btn btn-hollow-primary">
-            <span class="material-icons-outlined fs-4">dark_mode</span>
-        </button>
+        <hr class="my-4">
+        <div class="grow"></div>
+        <hr class="my-4">
+        <!-- Theme switcher removed for single color scheme -->
     </aside>
 
      <!-- Body Content -->
-    <div class="body-content">
+    <div class="flex flex-col">
         <!-- Main Content -->
-        <div class="bg-gradient d-flex flex-column gap-3 p-3" style="flex: 1 1 auto;">
-            <header class="rounded-2">
-                <h1 class="fw-bold mb-0 text-center">Hello</h1>
+        <div class="flex-1 flex flex-col gap-3 p-4">
+            <header class="rounded">
+                <h1 class="font-bold mb-0 text-center text-2xl">Hello</h1>
             </header>
-            <main class="d-flex flex-column gap-3">
-                <div class="bg-body border p-4 rounded-2">
-                    <h2 id="main-section-home" class="d-inline-flex align-items-center gap-1"><span class="material-icons-outlined fs-1">home</span>Home</h2>
+            <main class="flex flex-col gap-3">
+                <div class="p-4 rounded-lg">
+                    <h2 id="main-section-home" class="inline-flex items-center gap-2 text-xl"><span class="material-icons-outlined text-3xl">home</span>Home</h2>
                     <hr>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
@@ -67,8 +64,8 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
                 </div>
-                <div class="bg-body border p-4 rounded-2">
-                    <h2 id="main-section-about" class="d-inline-flex align-items-center gap-1"><span class="material-icons-outlined fs-1">person</span>About</h2>
+                <div class="p-4 rounded-lg">
+                    <h2 id="main-section-about" class="inline-flex items-center gap-2 text-xl"><span class="material-icons-outlined text-3xl">person</span>About</h2>
                     <hr>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
@@ -76,8 +73,8 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
                 </div>
-                <div class="bg-body border p-4 rounded-2">
-                    <h2 id="main-section-contact" class="d-inline-flex align-items-center gap-1"><span class="material-icons-outlined fs-1">mail</span>Contact</h2>
+                <div class="p-4 rounded-lg">
+                    <h2 id="main-section-contact" class="inline-flex items-center gap-2 text-xl"><span class="material-icons-outlined text-3xl">mail</span>Contact</h2>
                     <hr>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
@@ -88,14 +85,13 @@
             </main>
         </div>
          <!-- Footer -->
-        <footer class="bg-body border-top p-4">
+        <footer class="border-t p-4">
             <p class="text-center">&copy; 2025 My Website</p>
         </footer>
     </div>
 
     
     <!-- Javascript Links -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
