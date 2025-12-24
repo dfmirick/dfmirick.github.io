@@ -20,18 +20,12 @@ html::before {
     user-select: none;
 }
 
-hr {
-    border-top: 1px solid black;
-}
-
 main h2 {
     scroll-margin-top: 75px;
 }
 
 #sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
     width: var(--sidebar-expanded-width);
     height: 100vh;
     overflow: hidden;
@@ -42,10 +36,6 @@ main h2 {
     width: var(--sidebar-collapsed-width);
 }
 
-/* #sidebar.collapsed a span:nth-child(2) {
-    display: none;
-} */
-
 #sidebar + div {
     margin-left: var(--sidebar-expanded-width);
     transition: margin-left 0.3s ease;
@@ -54,4 +44,8 @@ main h2 {
 
 #sidebar.collapsed + div {
     margin-left: var(--sidebar-collapsed-width);
+}
+
+p {
+    margin-bottom: 1em !important;
 }
