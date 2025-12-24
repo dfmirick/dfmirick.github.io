@@ -10,32 +10,32 @@
     <link rel="stylesheet" href="style.css">
     <title>My Website</title>
 </head>
-<body data-bs-theme="auto">
+<body data-bs-theme="dark">
 
     <!-- Sidebar -->
     <aside id="sidebar" class="sidebar bg-body d-flex flex-column border-end p-3">
         <div id="navigation-header">
-            <button id="sidebar-toggle" class="btn">
-                <span class="material-icons-outlined text-primary-emphasis">menu</span>
+            <button id="sidebar-toggle" class="btn btn-hollow-primary">
+                <span class="material-icons-outlined">menu</span>
             </button>
             <h2 class="fs-4 mb-0">Navigation</h2>
         </div>
         <hr class="mt-2">
         <ul id="navigation-list" class="nav flex-column gap-2">
             <li class="navigation-item">
-                <a href="#" class="nav-link d-flex gap-2 border">
+                <a href="#main-section-home" class="nav-link d-flex gap-2 border">
                     <span class="navigation-icon material-icons-outlined align-items-center">home</span>
                     <span class="navigation-label">Home</span>
                 </a>
             </li>
             <li class="navigation-item">
-                <a href="#" class="nav-link d-flex gap-2 border">
+                <a href="#main-section-about" class="nav-link d-flex gap-2 border">
                     <span class="navigation-icon material-icons-outlined align-items-center">person</span>
                     <span class="navigation-label">About</span>
                 </a>
             </li>
             <li class="navigation-item">
-                <a href="#" class="nav-link d-flex gap-2 border">
+                <a href="#main-section-contact" class="nav-link d-flex gap-2 border">
                     <span class="navigation-icon material-icons-outlined align-items-center">mail</span>
                     <span class="navigation-label">Contact</span>
                 </a>
@@ -44,7 +44,8 @@
         <hr>
         <div class="flex-grow-1"></div>
         <hr class="mt-2">
-        <button id="theme-switcher" class="btn d-flex justify-content-center align-items-center p-0 mx-2" style="width: 24px; height: 24px;">
+                <!-- <button id="theme-switcher" class="btn btn-outline-primaryd-flex justify-content-center align-items-center p-0 mx-2" style="width: 24px; height: 24px;"> -->
+        <button id="theme-switcher" class="btn btn-hollow-primary">
             <span class="material-icons-outlined fs-4">dark_mode</span>
         </button>
     </aside>
@@ -56,17 +57,34 @@
             <header class="rounded-2">
                 <h1 class="fw-bold mb-0 text-center">Hello</h1>
             </header>
-            <main class="bg-body border flex-grow-1 p-4 rounded-2">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+            <main class="d-flex flex-column gap-3">
+                <div class="bg-body border p-4 rounded-2">
+                    <h2 id="main-section-home" class="d-inline-flex align-items-center gap-1"><span class="material-icons-outlined fs-1">home</span>Home</h2>
+                    <hr>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                </div>
+                <div class="bg-body border p-4 rounded-2">
+                    <h2 id="main-section-about" class="d-inline-flex align-items-center gap-1"><span class="material-icons-outlined fs-1">person</span>About</h2>
+                    <hr>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                </div>
+                <div class="bg-body border p-4 rounded-2">
+                    <h2 id="main-section-contact" class="d-inline-flex align-items-center gap-1"><span class="material-icons-outlined fs-1">mail</span>Contact</h2>
+                    <hr>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus labore nesciunt, iste fuga suscipit non explicabo mollitia cum cupiditate commodi iure adipisci necessitatibus amet similique voluptatibus? Ipsa vero nulla alias!</p>
+                </div>
             </main>
         </div>
          <!-- Footer -->
