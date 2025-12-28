@@ -1,3 +1,15 @@
+/* Fade-in animation for main text */
+
+.fade-in-line {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in-line.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 :root {
     --sidebar-expanded-width: 16rem; /* 256px */
     --sidebar-collapsed-width: 75px; /* 72px */
@@ -44,8 +56,4 @@ main h2 {
 
 #sidebar.collapsed + div {
     margin-left: var(--sidebar-collapsed-width);
-}
-
-p {
-    margin-bottom: 1em !important;
 }
