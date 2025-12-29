@@ -1,3 +1,7 @@
+/* Prevent hover background on icon when sidebar is collapsed */
+.sidebar.collapsed .shrink-0.hover\:bg-zinc-600:hover {
+    background-color: inherit !important;
+}
 /* Fade-in animation for main text */
 
 .fade-in-line {
@@ -36,24 +40,21 @@ main h2 {
     scroll-margin-top: 75px;
 }
 
-#sidebar {
+.sidebar {
     position: fixed;
     width: var(--sidebar-expanded-width);
-    height: 100vh;
-    overflow: hidden;
-    transition: width 0.3s ease, transform 0.3s ease;
+    transition: width 0.3s ease;
 }
 
-#sidebar.collapsed {
+.sidebar.collapsed {
     width: var(--sidebar-collapsed-width);
 }
 
-#sidebar + div {
+.sidebar + div {
     margin-left: var(--sidebar-expanded-width);
     transition: margin-left 0.3s ease;
-    min-height: 100vh;
 }
 
-#sidebar.collapsed + div {
+.sidebar.collapsed + div {
     margin-left: var(--sidebar-collapsed-width);
 }
