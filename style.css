@@ -1,9 +1,3 @@
-/* Prevent hover background on icon when sidebar is collapsed */
-.sidebar.collapsed .shrink-0.hover\:bg-zinc-600:hover {
-    background-color: inherit !important;
-}
-/* Fade-in animation for main text */
-
 .fade-in-line {
     opacity: 0;
     transform: translateY(10px);
@@ -11,14 +5,15 @@
         opacity 0.6s ease,
         transform 0.6s ease;
 }
+
 .fade-in-line.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 :root {
-    --sidebar-expanded-width: 16rem; /* 256px */
-    --sidebar-collapsed-width: 75px; /* 72px */
+    --sidebar-expanded-width: 250px; /* 256px */
+    --sidebar-collapsed-width: 4.625rem; /* 72px */
 }
 
 html {
@@ -34,35 +29,30 @@ html::before {
     pointer-events: none;
 }
 
-.material-icons-outlined {
-    user-select: none;
-}
-
-main h2 {
-    scroll-margin-top: 75px;
-}
-
-.sidebar {
-    position: fixed;
+aside {
     width: var(--sidebar-expanded-width);
     transition: width 0.3s ease;
 }
 
-.sidebar.collapsed {
+aside.collapsed {
     width: var(--sidebar-collapsed-width);
 }
 
-.sidebar + div {
+aside + main {
     margin-left: var(--sidebar-expanded-width);
     transition: margin-left 0.3s ease;
 }
 
-.sidebar.collapsed + div {
+aside.collapsed + main {
     margin-left: var(--sidebar-collapsed-width);
 }
 
 /* Hide scroll arrows unless #image-panel is hovered */
-#image-panel:not(:hover) #scroll-arrow-up,
-#image-panel:not(:hover) #scroll-arrow-down {
+#project-section:not(:hover) #scroll-arrow-up,
+#project-section:not(:hover) #scroll-arrow-down {
     opacity: 0 !important;
+}
+
+aside.collapsed .expanded-hover:hover {
+    background-color: inherit !important;
 }
