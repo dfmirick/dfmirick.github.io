@@ -1,81 +1,254 @@
-.fade-in-line {
-    opacity: 0;
-    transform: translateY(10px);
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+/* Spacing follows a 4-point grid: every margin, padding, gap and line height is a multiple of 4. */
+
+* {
+    box-sizing: border-box;
 }
 
-.fade-in-line.visible {
-    opacity: 1;
-    transform: translateY(0);
+body {
+    margin: 0;
+    background: #ffffff;
+    color: #18181b;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
 }
 
-:root {
-    --sidebar-expanded-width: 225px; /* 256px */
-    --sidebar-collapsed-width: 4.625rem; /* 72px */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 24px 64px;
 }
 
-html {
-    scroll-behavior: smooth;
+h1 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
 }
 
-html::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.06), rgba(2, 6, 23, 0.06));
-    z-index: -1;
-    pointer-events: none;
-}
-
-aside {
-    width: var(--sidebar-expanded-width);
-    transition: width 0.3s ease;
-}
-
-aside.collapsed {
-    width: var(--sidebar-collapsed-width);
-}
-
-aside + main {
-    margin-left: var(--sidebar-expanded-width);
-    transition: margin-left 0.3s ease;
-}
-
-aside.collapsed + main {
-    margin-left: var(--sidebar-collapsed-width);
-}
-
-/* Hide scroll arrows unless #image-panel is hovered */
-#project-section:not(:hover) #scroll-arrow-up,
-#project-section:not(:hover) #scroll-arrow-down {
-    opacity: 0 !important;
-}
-
-aside.collapsed .expanded-hover:hover {
-    background-color: inherit !important;
-}
-
-/* Reusable chip/tag component */
-.chip {
+h2 {
+    margin: 0 0 16px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #71717a;
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    width: fit-content;
-    border-radius: 9999px;
-    border: 1px solid rgb(82 82 91); /* zinc-600 */
-    background-color: rgb(39 39 42); /* zinc-800 */
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 500;
-    color: rgb(228 228 231); /* zinc-200 */
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    /* transition-property: color, background-color; */
-    transition-duration: 200ms;
+    gap: 8px;
 }
 
-.chip:hover {
-    /* background-color: rgb(63 63 70); /* zinc-700 */
+/* Hairline that runs from the end of the heading to the right edge */
+h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e4e4e7;
+}
+
+p {
+    margin: 0;
+}
+
+.intro {
+    margin-top: 16px;
+}
+
+.muted {
+    color: #71717a;
+}
+
+/* Experience rows */
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 0;
+}
+
+.list li > .muted {
+    white-space: nowrap;
+}
+
+/* Outlined YYYY-MM date tag, e.g. 2025-06 / 2025-08 */
+.date {
+    flex-shrink: 0;
+    padding: 0 8px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px #e4e4e7;
+    color: #52525b;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.date-sep {
+    color: #a1a1aa;
+}
+
+/* Links */
+
+a {
+    color: #18181b;
+    text-decoration: underline;
+    text-decoration-color: #a1a1aa;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    text-decoration-color: #18181b;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+hr {
+    margin: 0 0 12px;
+    border: 0;
+    border-top: 1px solid #e4e4e7;
+}
+
+/* Project cards
+   The project name's link is stretched over the whole card (.card-link::after),
+   and the chips sit above it so each one can be clicked on its own. */
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card {
+    position: relative;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #f4f4f5;
+    box-shadow: inset 0 0 0 1px transparent;
+    transition:
+        background-color 150ms ease,
+        box-shadow 300ms ease;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.card-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+}
+
+.card-link:focus-visible {
+    outline: none;
+}
+
+.card-title {
+    font-weight: 500;
+}
+
+.card-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: -2px -4px 0 0;
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: inset 0 0 0 1px #e4e4e7;
+    color: #52525b;
+    transition: color 150ms ease;
+}
+
+.card-desc {
+    margin: 4px 0 8px;
+    color: #71717a;
+}
+
+.chips {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chip {
+    display: block;
+    padding: 0 8px;
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: inset 0 0 0 1px #e4e4e7;
+    color: #52525b;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    line-height: 20px;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: box-shadow 300ms ease;
+}
+
+/* Hovering (or tabbing to) the card */
+.card:hover,
+.card:has(.card-link:focus-visible) {
+    background: #ededef;
+    box-shadow: inset 0 0 0 1px #d4d4d8;
+}
+
+.card:hover .card-icon,
+.card:has(.card-link:focus-visible) .card-icon {
+    color: #18181b;
+}
+
+.card:hover .chip {
+    box-shadow: inset 0 0 0 1px #d4d4d8;
+}
+
+/* Hovering a chip: the click goes to the chip, so drop the card's outline */
+.card:has(.chip:hover) {
+    box-shadow: inset 0 0 0 1px transparent;
+}
+
+.card:has(.chip:hover) .card-icon {
+    color: #52525b;
+}
+
+.chip:focus-visible {
+    outline: 2px solid #18181b;
+    outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card-icon,
+    .chip {
+        transition: none;
+    }
 }
