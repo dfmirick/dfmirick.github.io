@@ -100,6 +100,16 @@ a:hover {
     list-style: none;
 }
 
+/* Sits closer to the header than main's 40px gap: 40 - 8 = 32px */
+.experience-section {
+    margin-top: -8px;
+}
+
+/* Sits closer to Experience than main's 40px gap: 40 - 16 = 24px */
+.involvement {
+    margin-top: -16px;
+}
+
 .experience li {
     display: flex;
     justify-content: space-between;
