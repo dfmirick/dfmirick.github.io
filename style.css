@@ -103,6 +103,8 @@ a {
     text-decoration: underline;
     text-decoration-color: #a1a1aa;
     text-underline-offset: 2px;
+    /* Same timing as the project icon square's fill (Tailwind duration-200) */
+    transition: text-decoration-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a:hover {
@@ -122,8 +124,9 @@ hr {
 }
 
 /* Project cards
-   The project name's link is stretched over the whole card (.card-link::after),
-   and the chips sit above it so each one can be clicked on its own. */
+   The project name's link is stretched over the whole card (.card-link::after).
+   The link icon and the chips sit above it: the icon is its own link to the same
+   page, and the chips are plain labels that do nothing when clicked. */
 
 .projects {
     display: flex;
@@ -133,20 +136,21 @@ hr {
 
 .card {
     position: relative;
-    padding: 12px 16px;
+    border: 1px solid #e4e4e7;
     border-radius: 8px;
-    background: #f4f4f5;
-    box-shadow: inset 0 0 0 1px transparent;
-    transition:
-        background-color 150ms ease,
-        box-shadow 300ms ease;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
 }
 
 .card-top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
+    padding: 8px 4px 8px 12px;
+    border-bottom: 1px solid #e4e4e7;
+    background: #f4f4f5;
 }
 
 .card-link {
@@ -158,97 +162,113 @@ hr {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: inherit;
 }
 
 .card-link:focus-visible {
     outline: none;
 }
 
+.card:has(.card-link:focus-visible) {
+    outline: 2px solid #18181b;
+    outline-offset: 2px;
+}
+
 .card-title {
     font-weight: 500;
 }
 
+/* Icon square: fill and colour follow main's dropdown timing (Tailwind duration-200);
+   the icon swap takes 300ms on the same curve */
 .card-icon {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
     width: 24px;
     height: 24px;
-    margin: -2px -4px 0 0;
-    border-radius: 4px;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 1px #e4e4e7;
+    /* Negative margins keep the 24px square from setting the bar's height,
+       so the bar is sized by the title's 16px line plus padding.
+       That leaves 4px between the square and the bar's top, right and bottom. */
+    margin: -4px 0;
+    border-radius: 6px;
     color: #52525b;
-    transition: color 150ms ease;
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-icon svg {
+    position: absolute;
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-arrow {
+    opacity: 0;
+}
+
+.card-body {
+    padding: 12px;
 }
 
 .card-desc {
-    margin: 4px 0 8px;
     color: #71717a;
 }
 
 .chips {
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    margin: 0;
+    margin: 8px 0 0;
     padding: 0;
     list-style: none;
 }
 
 .chip {
-    display: block;
+    position: relative;
+    z-index: 1;
     padding: 0 8px;
     border-radius: 4px;
     background: #ffffff;
     box-shadow: inset 0 0 0 1px #e4e4e7;
     color: #52525b;
+    cursor: auto;
     font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 11px;
     line-height: 20px;
-    text-decoration: none;
     text-transform: lowercase;
-    transition: box-shadow 300ms ease;
 }
 
-/* Hovering (or tabbing to) the card */
-.card:hover,
-.card:has(.card-link:focus-visible) {
-    background: #ededef;
-    box-shadow: inset 0 0 0 1px #d4d4d8;
+/* Hovering (or tabbing to) the card swaps the icon to an arrow */
+.card:hover .icon-external,
+.card:has(.card-link:focus-visible) .icon-external {
+    opacity: 0;
 }
 
-.card:hover .card-icon,
-.card:has(.card-link:focus-visible) .card-icon {
-    color: #18181b;
+.card:hover .icon-arrow,
+.card:has(.card-link:focus-visible) .icon-arrow {
+    opacity: 1;
 }
 
-.card:hover .chip {
-    box-shadow: inset 0 0 0 1px #d4d4d8;
+/* Hovering the icon itself also fills its square */
+.card-icon:hover {
+    background: #e4e4e7;
 }
 
-/* Hovering a chip: the click goes to the chip, so drop the card's outline */
-.card:has(.chip:hover) {
-    box-shadow: inset 0 0 0 1px transparent;
+/* Hovering a chip acts as if the pointer had left the card */
+.card:has(.chip:hover) .icon-external {
+    opacity: 1;
 }
 
-.card:has(.chip:hover) .card-icon {
-    color: #52525b;
-}
-
-.chip:focus-visible {
-    outline: 2px solid #18181b;
-    outline-offset: 1px;
+.card:has(.chip:hover) .icon-arrow {
+    opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .card,
+    a,
     .card-icon,
-    .chip {
+    .card-icon svg {
         transition: none;
     }
 }

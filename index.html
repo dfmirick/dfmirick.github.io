@@ -15,9 +15,8 @@
             <header>
                 <h1>Daniel Mirick</h1>
                 <p class="muted">Computer Science at Harvard</p>
-                <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum consequuntur optio, tempore, adipisci soluta deserunt exercitationem molestiae aliquid quis ipsa consectetur. Consequuntur cum impedit deleniti odit repellat perspiciatis perferendis!</p>
+                <!-- <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum consequuntur optio, tempore, adipisci soluta deserunt exercitationem molestiae aliquid quis ipsa consectetur. Consequuntur cum impedit deleniti odit repellat perspiciatis perferendis!</p> -->
             </header>
-
             <section>
                 <h2>Experience</h2>
                 <ul class="list">
@@ -28,7 +27,6 @@
                     <!-- <li><span>MIT Beaver Works Summer Institute</span><span class="muted">2024</span></li> -->
                 </ul>
             </section>
-
             <!-- Projects section, hidden for now. Remove this comment wrapper to show it again.
                  To add a project, copy one <article class="card"> block.
             <section>
@@ -37,57 +35,62 @@
                     <article class="card">
                         <div class="card-top">
                             <a class="card-link" href="https://www.example.com"><span class="card-title">Lorem Ipsum</span></a>
-                            <span class="card-icon" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /><path d="M11 13l9-9" /><path d="M15 4h5v5" /></svg>
-                            </span>
+                            <a class="card-icon" href="https://www.example.com" tabindex="-1" aria-hidden="true">
+                                <svg class="icon-external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /><path d="M11 13l9-9" /><path d="M15 4h5v5" /></svg>
+                                <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></svg>
+                            </a>
                         </div>
-                        <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                        <ul class="chips">
-                            <li><a class="chip" href="https://www.example.com">Lorem</a></li>
-                            <li><a class="chip" href="https://www.example.com">Ipsum</a></li>
-                            <li><a class="chip" href="https://www.example.com">Dolor</a></li>
-                        </ul>
+                        <div class="card-body">
+                            <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <ul class="chips">
+                                <li class="chip">Lorem</li>
+                                <li class="chip">Ipsum</li>
+                                <li class="chip">Dolor</li>
+                            </ul>
+                        </div>
                     </article>
-
                     <article class="card">
                         <div class="card-top">
                             <a class="card-link" href="https://www.example.com"><span class="card-title">Dolor Sit</span></a>
-                            <span class="card-icon" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /><path d="M11 13l9-9" /><path d="M15 4h5v5" /></svg>
-                            </span>
+                            <a class="card-icon" href="https://www.example.com" tabindex="-1" aria-hidden="true">
+                                <svg class="icon-external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /><path d="M11 13l9-9" /><path d="M15 4h5v5" /></svg>
+                                <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></svg>
+                            </a>
                         </div>
-                        <p class="card-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                        <ul class="chips">
-                            <li><a class="chip" href="https://www.example.com">Sit</a></li>
-                            <li><a class="chip" href="https://www.example.com">Amet</a></li>
-                            <li><a class="chip" href="https://www.example.com">Elit</a></li>
-                        </ul>
+                        <div class="card-body">
+                            <p class="card-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                            <ul class="chips">
+                                <li class="chip">Sit</li>
+                                <li class="chip">Amet</li>
+                                <li class="chip">Elit</li>
+                            </ul>
+                        </div>
                     </article>
-
                     <article class="card">
                         <div class="card-top">
                             <a class="card-link" href="https://www.example.com"><span class="card-title">Amet Consectetur</span></a>
-                            <span class="card-icon" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /><path d="M11 13l9-9" /><path d="M15 4h5v5" /></svg>
-                            </span>
+                            <a class="card-icon" href="https://www.example.com" tabindex="-1" aria-hidden="true">
+                                <svg class="icon-external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /><path d="M11 13l9-9" /><path d="M15 4h5v5" /></svg>
+                                <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></svg>
+                            </a>
                         </div>
-                        <p class="card-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                        <ul class="chips">
-                            <li><a class="chip" href="https://www.example.com">Lorem</a></li>
-                            <li><a class="chip" href="https://www.example.com">Sed</a></li>
-                        </ul>
+                        <div class="card-body">
+                            <p class="card-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                            <ul class="chips">
+                                <li class="chip">Lorem</li>
+                                <li class="chip">Sed</li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
             </section>
             -->
-
             <section>
                 <hr />
-                <!-- TODO: replace the email and LinkedIn placeholders -->
                 <p class="links">
-                    <a href="mailto:your@email.com">Email</a>
+                    <a href="mailto:dfmirick@email.com">Email</a>
                     <a href="https://github.com/dfmirick">GitHub</a>
-                    <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/dfmirick">LinkedIn</a>
                 </p>
             </section>
         </main>
