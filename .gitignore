@@ -1,9 +1,0 @@
-.gitignore
-.DS_Store
-TODO.md
-/old
-.prettierrc.json
-/node_modules
-.vscode
-package-lock.json
-package.json
