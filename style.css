@@ -1,13 +1,23 @@
 /* Spacing follows a 4-point grid: every margin, padding, gap and line height is a multiple of 4. */
 
+/* Colour palette: zinc greys only. Use these variables, never raw hex values. */
+:root {
+    --bg: #ffffff;      /* page and chip background */
+    --surface: #f4f4f5; /* card header bar */
+    --line: #e4e4e7;    /* borders, hairlines, hover fills */
+    --subtle: #a1a1aa;  /* link underlines, date separators */
+    --muted: #71717a;   /* secondary text, dates, chips, icons */
+    --text: #18181b;    /* primary text, links, focus rings */
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background: #ffffff;
-    color: #18181b;
+    background: var(--bg);
+    color: var(--text);
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
     line-height: 20px;
@@ -34,7 +44,7 @@ h2 {
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
-    color: #71717a;
+    color: var(--muted);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -45,7 +55,7 @@ h2::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #e4e4e7;
+    background: var(--line);
 }
 
 p {
@@ -57,7 +67,7 @@ p {
 }
 
 .muted {
-    color: #71717a;
+    color: var(--muted);
 }
 
 /* Experience rows */
@@ -84,8 +94,8 @@ p {
     flex-shrink: 0;
     padding: 0 8px;
     border-radius: 4px;
-    box-shadow: inset 0 0 0 1px #e4e4e7;
-    color: #52525b;
+    box-shadow: inset 0 0 0 1px var(--line);
+    color: var(--muted);
     font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 11px;
     line-height: 20px;
@@ -93,22 +103,22 @@ p {
 }
 
 .date-sep {
-    color: #a1a1aa;
+    color: var(--subtle);
 }
 
 /* Links */
 
 a {
-    color: #18181b;
+    color: var(--text);
     text-decoration: underline;
-    text-decoration-color: #a1a1aa;
+    text-decoration-color: var(--subtle);
     text-underline-offset: 2px;
     /* Same timing as the project icon square's fill (Tailwind duration-200) */
     transition: text-decoration-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a:hover {
-    text-decoration-color: #18181b;
+    text-decoration-color: var(--text);
 }
 
 .links {
@@ -120,7 +130,7 @@ a:hover {
 hr {
     margin: 0 0 12px;
     border: 0;
-    border-top: 1px solid #e4e4e7;
+    border-top: 1px solid var(--line);
 }
 
 /* Project cards
@@ -136,7 +146,7 @@ hr {
 
 .card {
     position: relative;
-    border: 1px solid #e4e4e7;
+    border: 1px solid var(--line);
     border-radius: 8px;
     overflow: hidden;
     font-size: 12px;
@@ -149,8 +159,8 @@ hr {
     align-items: center;
     gap: 12px;
     padding: 8px 4px 8px 12px;
-    border-bottom: 1px solid #e4e4e7;
-    background: #f4f4f5;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
 }
 
 .card-link {
@@ -169,7 +179,7 @@ hr {
 }
 
 .card:has(.card-link:focus-visible) {
-    outline: 2px solid #18181b;
+    outline: 2px solid var(--text);
     outline-offset: 2px;
 }
 
@@ -193,7 +203,7 @@ hr {
        That leaves 4px between the square and the bar's top, right and bottom. */
     margin: -4px 0;
     border-radius: 6px;
-    color: #52525b;
+    color: var(--muted);
     transition-property: background-color;
     transition-duration: 200ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -213,7 +223,7 @@ hr {
 }
 
 .card-desc {
-    color: #71717a;
+    color: var(--muted);
 }
 
 .chips {
@@ -230,9 +240,9 @@ hr {
     z-index: 1;
     padding: 0 8px;
     border-radius: 4px;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 1px #e4e4e7;
-    color: #52525b;
+    background: var(--bg);
+    box-shadow: inset 0 0 0 1px var(--line);
+    color: var(--muted);
     cursor: auto;
     font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 11px;
@@ -253,7 +263,7 @@ hr {
 
 /* Hovering the icon itself also fills its square */
 .card-icon:hover {
-    background: #e4e4e7;
+    background: var(--line);
 }
 
 /* Hovering a chip acts as if the pointer had left the card */
