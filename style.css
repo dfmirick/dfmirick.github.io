@@ -113,7 +113,7 @@ a:hover {
 }
 
 .date-separator {
-    color: var(--border);
+    color: var(--text-muted);
 }
 
 .links {
