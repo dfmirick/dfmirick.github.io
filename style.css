@@ -1,12 +1,9 @@
-/* Spacing follows a 4-point grid: every margin, padding, gap and line height is a multiple of 4. */
-
-/* Colour palette: zinc greys only. Use these variables, never raw hex values. */
 :root {
-    --bg: #ffffff;      /* page and chip background */
-    --surface: #f4f4f5; /* card header bar */
-    --line: #e4e4e7;    /* borders, hairlines, hover fills, link underlines, date separators */
-    --muted: #71717a;   /* secondary text, dates, chips, icons */
-    --text: #18181b;    /* primary text, links, focus rings */
+    --background: #ffffff;
+    --surface: #f4f4f5;
+    --border: #e4e4e7;
+    --text-muted: #71717a;
+    --text: #18181b;
 }
 
 * {
@@ -15,7 +12,7 @@
 
 body {
     margin: 0;
-    background: var(--bg);
+    background: var(--background);
     color: var(--text);
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
@@ -34,85 +31,43 @@ main {
 h1 {
     margin: 0;
     font-size: 20px;
-    line-height: 28px;
     font-weight: 600;
+    line-height: 28px;
 }
 
 h2 {
-    margin: 0 0 16px;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    color: var(--muted);
     display: flex;
     align-items: center;
     gap: 8px;
+    margin: 0 0 16px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
 }
 
-/* Hairline that runs from the end of the heading to the right edge */
 h2::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--line);
+    background: var(--border);
 }
 
 p {
     margin: 0;
 }
 
-.intro {
-    margin-top: 16px;
+hr {
+    margin: 0 0 12px;
+    border: 0;
+    border-top: 1px solid var(--border);
 }
-
-.muted {
-    color: var(--muted);
-}
-
-/* Experience rows */
-
-.list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.list li {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 4px 0;
-}
-
-.list li > .muted {
-    white-space: nowrap;
-}
-
-/* Outlined YYYY-MM date tag, e.g. 2025-06 / 2025-08 */
-.date {
-    flex-shrink: 0;
-    padding: 0 8px;
-    border-radius: 4px;
-    box-shadow: inset 0 0 0 1px var(--line);
-    color: var(--muted);
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 11px;
-    line-height: 20px;
-    white-space: nowrap;
-}
-
-.date-sep {
-    color: var(--line);
-}
-
-/* Links */
 
 a {
     color: var(--text);
     text-decoration: underline;
-    text-decoration-color: var(--line);
+    text-decoration-color: var(--border);
     text-underline-offset: 2px;
-    /* Same timing as the project icon square's fill (Tailwind duration-200) */
     transition: text-decoration-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -120,22 +75,52 @@ a:hover {
     text-decoration-color: var(--text);
 }
 
+.muted {
+    color: var(--text-muted);
+}
+
+.intro {
+    margin-top: 16px;
+}
+
+.date,
+.card-chip {
+    padding: 0 8px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px var(--border);
+    color: var(--text-muted);
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+.experience {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.experience li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 0;
+}
+
+.date {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.date-separator {
+    color: var(--border);
+}
+
 .links {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
-
-hr {
-    margin: 0 0 12px;
-    border: 0;
-    border-top: 1px solid var(--line);
-}
-
-/* Project cards
-   The project name's link is stretched over the whole card (.card-link::after).
-   The link icon and the chips sit above it: the icon is its own link to the same
-   page, and the chips are plain labels that do nothing when clicked. */
 
 .projects {
     display: flex;
@@ -145,25 +130,31 @@ hr {
 
 .card {
     position: relative;
-    border: 1px solid var(--line);
-    border-radius: 8px;
     overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 8px;
     font-size: 12px;
     line-height: 16px;
 }
 
-.card-top {
+.card:has(.card-link:focus-visible) {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+.card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
     padding: 8px 4px 8px 12px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--border);
     background: var(--surface);
 }
 
 .card-link {
     color: inherit;
+    font-weight: 500;
     text-decoration: none;
 }
 
@@ -177,17 +168,6 @@ hr {
     outline: none;
 }
 
-.card:has(.card-link:focus-visible) {
-    outline: 2px solid var(--text);
-    outline-offset: 2px;
-}
-
-.card-title {
-    font-weight: 500;
-}
-
-/* Icon square: fill and colour follow main's dropdown timing (Tailwind duration-200);
-   the icon swap takes 300ms on the same curve */
 .card-icon {
     position: relative;
     z-index: 1;
@@ -197,15 +177,14 @@ hr {
     justify-content: center;
     width: 24px;
     height: 24px;
-    /* Negative margins keep the 24px square from setting the bar's height,
-       so the bar is sized by the title's 16px line plus padding.
-       That leaves 4px between the square and the bar's top, right and bottom. */
     margin: -4px 0;
     border-radius: 6px;
-    color: var(--muted);
-    transition-property: background-color;
-    transition-duration: 200ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-muted);
+    transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-icon:hover {
+    background: var(--border);
 }
 
 .card-icon svg {
@@ -213,19 +192,27 @@ hr {
     transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon-arrow {
+.card-icon-arrow {
     opacity: 0;
+}
+
+.card:is(:hover, :has(.card-link:focus-visible)):not(:has(.card-chip:hover)) .card-icon-external {
+    opacity: 0;
+}
+
+.card:is(:hover, :has(.card-link:focus-visible)):not(:has(.card-chip:hover)) .card-icon-arrow {
+    opacity: 1;
 }
 
 .card-body {
     padding: 12px;
 }
 
-.card-desc {
-    color: var(--muted);
+.card-description {
+    color: var(--text-muted);
 }
 
-.chips {
+.card-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
@@ -234,44 +221,11 @@ hr {
     list-style: none;
 }
 
-.chip {
+.card-chip {
     position: relative;
     z-index: 1;
-    padding: 0 8px;
-    border-radius: 4px;
-    background: var(--bg);
-    box-shadow: inset 0 0 0 1px var(--line);
-    color: var(--muted);
-    cursor: auto;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 11px;
-    line-height: 20px;
+    background: var(--background);
     text-transform: lowercase;
-}
-
-/* Hovering (or tabbing to) the card swaps the icon to an arrow */
-.card:hover .icon-external,
-.card:has(.card-link:focus-visible) .icon-external {
-    opacity: 0;
-}
-
-.card:hover .icon-arrow,
-.card:has(.card-link:focus-visible) .icon-arrow {
-    opacity: 1;
-}
-
-/* Hovering the icon itself also fills its square */
-.card-icon:hover {
-    background: var(--line);
-}
-
-/* Hovering a chip acts as if the pointer had left the card */
-.card:has(.chip:hover) .icon-external {
-    opacity: 1;
-}
-
-.card:has(.chip:hover) .icon-arrow {
-    opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
