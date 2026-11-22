@@ -4,8 +4,7 @@
 :root {
     --bg: #ffffff;      /* page and chip background */
     --surface: #f4f4f5; /* card header bar */
-    --line: #e4e4e7;    /* borders, hairlines, hover fills */
-    --subtle: #a1a1aa;  /* link underlines, date separators */
+    --line: #e4e4e7;    /* borders, hairlines, hover fills, link underlines, date separators */
     --muted: #71717a;   /* secondary text, dates, chips, icons */
     --text: #18181b;    /* primary text, links, focus rings */
 }
@@ -103,7 +102,7 @@ p {
 }
 
 .date-sep {
-    color: var(--subtle);
+    color: var(--line);
 }
 
 /* Links */
@@ -111,7 +110,7 @@ p {
 a {
     color: var(--text);
     text-decoration: underline;
-    text-decoration-color: var(--subtle);
+    text-decoration-color: var(--line);
     text-underline-offset: 2px;
     /* Same timing as the project icon square's fill (Tailwind duration-200) */
     transition: text-decoration-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
