@@ -119,6 +119,7 @@ a:hover {
 
 .date {
     flex-shrink: 0;
+    align-self: flex-start;
     white-space: nowrap;
 }
 
